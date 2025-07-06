@@ -1,6 +1,9 @@
 using Moq;
+using Newtonsoft.Json;
 using SharpTrooper.Core;
+using SharpTrooper.Entities;
 using System.Net;
+using System.Runtime.CompilerServices;
 
 namespace SharpTrooper.Tests
 {
@@ -54,7 +57,27 @@ namespace SharpTrooper.Tests
             var films = await sharpTrooperCore.GetAllFilmsAsync();
 
             // Assert
-            Assert.AreEqual(6, films.count);
+            Assert.AreEqual(6, films.Count);
+        }
+
+        private static readonly HttpClient _httpClient = new HttpClient();
+
+        [TestMethod]
+        public async Task First_Film_Should_Be_A_New_Hope()
+        {
+            try
+            {
+                string response = await _httpClient.GetStringAsync("https://swapi.info/api/films");
+
+                var films = JsonConvert.DeserializeObject<IList<Film>>(response);
+
+                Assert.IsTrue(films?[0].title.Equals("A New Hope"));
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine("Exception caught");
+                Console.WriteLine("Message :{0}", e.Message);
+            }
         }
     }
 }
