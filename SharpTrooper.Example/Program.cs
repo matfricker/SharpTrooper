@@ -25,7 +25,7 @@ using (var host = Host.CreateDefaultBuilder(args)
 
     var films = await sharpTrooperService.GetAllFilmsAsync();
 
-    foreach (var item in films.results)
+    foreach (var item in films.Results)
     {
         Console.WriteLine(item.title);
     }
@@ -34,7 +34,7 @@ using (var host = Host.CreateDefaultBuilder(args)
 
     var people = await sharpTrooperService.GetAllPeopleAsync();
 
-    foreach (var item in people.results)
+    foreach (var item in people.Results)
     {
         Console.WriteLine(item.name);
     }
@@ -43,7 +43,7 @@ using (var host = Host.CreateDefaultBuilder(args)
 
     var vehicles = await sharpTrooperService.GetAllVehiclesAsync();
 
-    foreach (var item in vehicles.results)
+    foreach (var item in vehicles.Results)
     {
         Console.WriteLine(item.name);
     }
@@ -52,7 +52,7 @@ using (var host = Host.CreateDefaultBuilder(args)
 
     var species = await sharpTrooperService.GetAllSpeciesAsync();
 
-    foreach (var item in species.results)
+    foreach (var item in species.Results)
     {
         Console.WriteLine(item.name);
     }
@@ -61,7 +61,7 @@ using (var host = Host.CreateDefaultBuilder(args)
 
     var planets = await sharpTrooperService.GetAllPlanetsAsync();
 
-    foreach (var item in planets.results)
+    foreach (var item in planets.Results)
     {
         Console.WriteLine(item.name);
     }

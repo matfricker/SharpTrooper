@@ -5,37 +5,37 @@ namespace SharpTrooper.Entities
 {
     public class SharpEntityResults<T> : SharpEntity where T : SharpEntity
     {
-        public string previous
+        public string Previous
         {
             get;
             set;
         }
 
-        public string next
+        public string Next
         {
             get;
             set;
         }
 
-        public string previousPageNo
+        public string PreviousPageNo
         {
             get;
             set;
         }
 
-        public string nextPageNo
+        public string NextPageNo
         {
             get;
             set;
         }
 
-        public Int64 count
+        public int Count
         {
             get;
             set;
         }
 
-        public List<T> results
+        public IList<T> Results
         {
             get;
             set;
