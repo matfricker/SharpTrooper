@@ -19,7 +19,7 @@ namespace SharpTrooper.Entities
         /// <summary>
         /// The vehicle resources featured within this film.
         /// </summary>
-        public List<string> vehicles
+        public IList<string> vehicles
         {
             get;
             set;
@@ -37,7 +37,7 @@ namespace SharpTrooper.Entities
         /// <summary>
         /// An array of starship resources that this person has piloted
         /// </summary>
-        public List<string> starships
+        public IList<string> starships
         {
             get;
             set;
@@ -55,7 +55,7 @@ namespace SharpTrooper.Entities
         /// <summary>
         /// The url of the species resource that this person is.
         /// </summary>
-        public List<string> species
+        public IList<string> species
         {
             get;
             set;
@@ -73,7 +73,7 @@ namespace SharpTrooper.Entities
         /// <summary>
         /// The planet resources featured within this film.
         /// </summary>
-        public List<string> planets
+        public IList<string> planets
         {
             get;
             set;
@@ -91,7 +91,7 @@ namespace SharpTrooper.Entities
         /// <summary>
         /// The people resources featured within this film.
         /// </summary>
-        public List<string> characters
+        public IList<string> characters
         {
             get;
             set;
