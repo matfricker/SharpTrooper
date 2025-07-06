@@ -11,7 +11,7 @@ namespace SharpTrooper.Core
 {
     public class SharpTrooperCore(IHttpClientFactory clientFactory)
     {
-        private readonly string apiUrl = "http://swapi.dev/api"; // could be placed into config file
+        private readonly string apiUrl = "https://swapi.info/api"; // could be placed into config file
 
         #region Private
 
@@ -64,7 +64,7 @@ namespace SharpTrooper.Core
             }
 
             string json = await RequestAsync(string.Format("{0}{1}{2}", apiUrl, endpoint, serializedParameters));
-            SharpEntityResults<T> swapiResponse = JsonConvert.DeserializeObject<SharpEntityResults<T>>(json);
+            SharpEntityResults<T> Response = JsonConvert.DeserializeObject<SharpEntityResults<T>>(json);
             return swapiResponse;
         }
 
@@ -104,8 +104,8 @@ namespace SharpTrooper.Core
 
             SharpEntityResults<T> result = await GetMultipleAsync<T>(entityName, parameters);
 
-            result.nextPageNo = string.IsNullOrEmpty(result.next) ? null : GetQueryParameters(result.next)["page"];
-            result.previousPageNo = string.IsNullOrEmpty(result.previous) ? null : GetQueryParameters(result.previous)["page"];
+            result.NextPageNo = string.IsNullOrEmpty(result.Next) ? null : GetQueryParameters(result.Next)["page"];
+            result.PreviousPageNo = string.IsNullOrEmpty(result.Previous) ? null : GetQueryParameters(result.Previous)["page"];
 
             return result;
         }
